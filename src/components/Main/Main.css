@@ -1,8 +1,8 @@
-.main{
-    flex: 1;
-    min-height: 100vh;
-    position: relative;
-    padding-bottom: 15px;
+.main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--bg-main);
 }
 
 .nav{
@@ -11,7 +11,7 @@
     justify-content: space-between;
     font-size: 22px;
     padding: 20px;
-    color: #585858;
+    color: var(--text-soft);
 }
 
 .nav img{
@@ -19,17 +19,19 @@
     border-radius: 100%;
 }
 
-.main-container{
-    margin: auto;
-    max-width: 900px;
+.main-container {
+  flex: 1;
+  max-width: 900px;
+  margin: auto;
+  padding-bottom: 120px; 
 }
 
-.greet{
-    margin: 50px 0px;
-    font-size: 56px;
-    color: #c4c7c5;
-    font-weight: 500;
-    padding: 20px;
+.greet {
+  margin: 40px 0;
+  font-size: clamp(32px, 5vw, 56px);
+  color: #c4c7c5;
+  font-weight: 500;
+  padding: 0 20px;
 }
 
 .greet span{
@@ -38,20 +40,21 @@
     -webkit-text-fill-color: transparent;
 }
 
-.cards{
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-    gap: 15px;
-    padding: 20px;
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+  gap: 16px;
+  padding: 20px;
 }
 
-.card{
-    background-color: #f0f4f9;
-    border-radius: 10px;
-    cursor: pointer;
-    position: relative;
-    height: 200px;
-    padding: 15px;
+.card {
+  background-color: var(--bg-soft);
+  border-radius: 12px;
+  cursor: pointer;
+  position: relative;
+  height: 180px;
+  padding: 16px;
+  transition: transform 0.2s ease, background-color 0.2s ease;
 }
 
 .card img{
@@ -63,21 +66,22 @@
 }
 
 .card p{
-    color: #585858;
+    color: var(--text-soft);
     font-size: 17px;
 }
 
-.card:hover{
-    background-color: #dfe4ea;
+.card:hover {
+  background-color: var(--bg-hover);
+  transform: translateY(-4px);
 }
 
-.main-bottom{
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    max-width: 900px;
-    padding: 0px 20px;
-    margin: auto;
+.main-bottom {
+  position: fixed;
+  bottom: 0;
+  width: calc(100% - 70px);
+  max-width: 900px;
+  background: transparent;
+  padding: 10px 20px 20px;
 }
 
 .search-box{
@@ -85,7 +89,8 @@
     align-items: center;
     justify-content: space-between;
     gap: 20px;
-    background-color: #f0f4f9;
+    background-color: var(--bg-soft);
+    border: 1px solid var(--border-soft);
     padding: 10px 20px;
     border-radius: 50px;
 }
@@ -102,6 +107,11 @@
     outline: none;
     padding: 8px;
     font-size: 18px;
+    color: var(--text-main);
+}
+
+.search-box input::placeholder {
+  color: var(--text-muted);
 }
 
 .search-box div{
@@ -115,4 +125,23 @@
     margin: 15px auto;
     text-align: center;
     font-weight: 300;
+    color: var(--text-muted);
+}
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.theme-toggle {
+  width: 22px;
+  cursor: pointer;
+  opacity: 0.8;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.theme-toggle:hover {
+  opacity: 1;
+  transform: rotate(15deg);
 }

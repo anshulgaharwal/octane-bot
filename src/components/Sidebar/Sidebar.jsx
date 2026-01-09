@@ -4,9 +4,8 @@ import { assets } from "../../assets/assets";
 
 const Sidebar = () => {
   const [extended, setExtended] = useState(false);
-
   return (
-    <div className="sidebar">
+    <div className={`sidebar ${extended ? "extended" : ""}`}> 
       <div className="top">
         <img className="menu" onClick={() => setExtended(prev => !prev)} src={assets.menu_icon} alt="" />
         <div className="new-chat">

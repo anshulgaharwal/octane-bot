@@ -10,3 +10,33 @@
   min-height: 100vh;
   display: flex;
 }
+
+:root {
+  --bg-main: #ffffff;
+  --bg-soft: #f0f4f9;
+  --bg-hover: #e2e6eb;
+
+  --text-main: #282828;
+  --text-soft: #585858;
+  --text-muted: #777;
+
+  --border-soft: #dadce0;
+}
+
+body.dark {
+  --bg-main: #131314;
+  --bg-soft: #1e1f20;
+  --bg-hover: #2a2b2d;
+
+  --text-main: #e8eaed;
+  --text-soft: #bdc1c6;
+  --text-muted: #9aa0a6;
+
+  --border-soft: #3c4043;
+}
+
+body {
+  background-color: var(--bg-main);
+  color: var(--text-main);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}

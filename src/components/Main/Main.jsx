@@ -1,12 +1,33 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import './Main.css'
 import { assets } from '../../assets/assets'
 
 const Main = () => {
+    const [darkMode, setDarkMode] = useState(
+        localStorage.getItem("theme") === "dark"
+    );
+    const [prompt, setPrompt] = useState("");
+    const [response, setResponse] = useState("");
+    const [loading, setLoading] = useState(false);
+
+
+    useEffect(() => {
+        document.body.classList.toggle("dark", darkMode);
+        localStorage.setItem("theme", darkMode ? "dark" : "light");
+    }, [darkMode]);
+
   return (
     <div className="main">
         <div className="nav">
             <p>Gemini</p>
+            <div className="nav-right">
+                <img
+                    className="theme-toggle"
+                    src={darkMode ? assets.sun_icon : assets.moon_icon} 
+                    alt="" 
+                    onClick = {() => setDarkMode(!darkMode)}
+                 />
+            </div>
             <img src={assets.user_icon} alt="" />
         </div>
         <div className="main-container">
